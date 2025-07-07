@@ -5,9 +5,11 @@ class MateriasController{
     async request(){
         try {
             const {data:materias} = await supabase.from("materias").select("id,materia");
+            if (error) {throw new Error(error.message);}
             return(materias);
+            
         } catch (error) {
-            console.error(error);
+            console.error(error.message);
         }
     }
 
